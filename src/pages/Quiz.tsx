@@ -9,7 +9,6 @@ import {
   LinearProgress,
 } from '@mui/material';
 import Question from '../components/Quiz/Question';
-import ScoreModal from '../components/Quiz/ScoreModal';
 import { useQuizStore } from '../store/quizStore';
 import { Question as QuestionType } from '../types/quiz.types';
 
@@ -342,10 +341,9 @@ const Quiz = () => {
   const { sectionId } = useParams();
   const navigate = useNavigate();
   const { answers, setAnswer, setScore, completeQuiz } = useQuizStore();
-  const [showScoreModal, setShowScoreModal] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [maxPossibleScore, setMaxPossibleScore] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const questions = useMemo(() => mockQuestions[sectionId || ''] || [], [sectionId]);
   const totalQuestions = questions.length;
@@ -376,20 +374,17 @@ const Quiz = () => {
     setScore(Number(sectionId?.split('-')[0]), (score / maxScore) * 100);
     completeQuiz();
     
-    // Show score modal and mark as submitted to show colors
+    // Show score and mark as submitted
     setFinalScore(score);
     setMaxPossibleScore(maxScore);
-    setShowScoreModal(true);
     setIsSubmitted(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowScoreModal(false);
   };
 
   if (!questions.length) {
     return null;
   }
+
+  const percentage = Math.round((finalScore / maxPossibleScore) * 100);
 
   return (
     <Container maxWidth="md">
@@ -422,6 +417,17 @@ const Quiz = () => {
           />
         ))}
 
+        {isSubmitted && (
+          <Paper sx={{ p: 3, mt: 4, textAlign: 'center' }}>
+            <Typography variant="h4" component="div" gutterBottom>
+              {percentage}%
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              You scored {finalScore} out of {maxPossibleScore} points
+            </Typography>
+          </Paper>
+        )}
+
         <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', gap: 2 }}>
           <Button
             variant="outlined"
@@ -438,13 +444,6 @@ const Quiz = () => {
           </Button>
         </Box>
       </Box>
-
-      <ScoreModal
-        open={showScoreModal}
-        score={finalScore}
-        maxScore={maxPossibleScore}
-        onClose={handleCloseModal}
-      />
     </Container>
   );
 };
