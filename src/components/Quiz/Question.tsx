@@ -15,29 +15,33 @@ interface QuestionProps {
   isSubmitted?: boolean;
 }
 
+const getRadioColor = (index: number, correctAnswer: number, selectedAnswer: number | undefined, isSubmitted: boolean) => {
+  if (!isSubmitted) return 'default';
+  if (index === correctAnswer) return 'success';
+  if (selectedAnswer === index && index !== correctAnswer) return 'error';
+  return 'default';
+};
+
+const getLabelStyle = (index: number, correctAnswer: number, selectedAnswer: number | undefined, isSubmitted: boolean) => {
+  if (!isSubmitted) return {};
+  if (index === correctAnswer) {
+    return { color: '#43a047 !important' };
+  }
+  if (selectedAnswer === index && index !== correctAnswer) {
+    return { color: '#e53935 !important' };
+  }
+  return {};
+};
+
 const Question = ({ question, onAnswer, selectedAnswer, isSubmitted }: QuestionProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onAnswer(question.id, parseInt(event.target.value));
   };
 
-  const getOptionColor = (index: number) => {
-    if (!isSubmitted) return 'inherit';
-    
-    if (index === question.correctAnswer) {
-      return 'success.main';
-    }
-    
-    if (selectedAnswer === index && index !== question.correctAnswer) {
-      return 'error.main';
-    }
-    
-    return 'inherit';
-  };
-
   return (
     <Card sx={{ mb: 3 }}>
       <CardContent>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: 500 }}>
           {question.text}
         </Typography>
         <RadioGroup
@@ -48,18 +52,23 @@ const Question = ({ question, onAnswer, selectedAnswer, isSubmitted }: QuestionP
             <FormControlLabel
               key={index}
               value={index.toString()}
-              control={<Radio />}
+              control={
+                <Radio
+                  color={getRadioColor(index, question.correctAnswer, selectedAnswer, !!isSubmitted)}
+                  checked={selectedAnswer === index}
+                />
+              }
               label={option}
               disabled={isSubmitted}
               sx={{
                 my: 0.5,
+                ml: 1,
                 '&:hover': {
                   backgroundColor: 'action.hover',
                   borderRadius: 1,
                 },
-                color: getOptionColor(index),
                 '& .MuiFormControlLabel-label': {
-                  color: getOptionColor(index),
+                  ...getLabelStyle(index, question.correctAnswer, selectedAnswer, !!isSubmitted),
                 },
               }}
             />

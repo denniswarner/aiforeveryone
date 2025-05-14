@@ -7,10 +7,13 @@ import {
   Box,
   Paper,
   LinearProgress,
+  Snackbar,
+  Alert,
 } from '@mui/material';
 import Question from '../components/Quiz/Question';
 import { useQuizStore } from '../store/quizStore';
 import { Question as QuestionType } from '../types/quiz.types';
+import { progressService } from '../services/progressService';
 
 // Temporary mock data - replace with actual API call later
 const mockQuestions: Record<string, QuestionType[]> = {
@@ -320,19 +323,1223 @@ const mockQuestions: Record<string, QuestionType[]> = {
     }
   ],
   '1-2': [
-    // Placeholder for "What is data?" section
+    // Basic Questions (1-10)
     {
-      id: 24,
+      id: 48,
       quizId: 2,
-      text: "What is the primary role of data in AI systems?",
+      text: "What is a table of data also called?",
       options: [
-        "To store program instructions",
-        "To provide examples for learning patterns and making predictions",
-        "To display user interfaces",
-        "To manage hardware resources"
+        "A database",
+        "A data set",
+        "A spreadsheet",
+        "A data warehouse"
       ],
       correctAnswer: 1,
       points: 1
+    },
+    {
+      id: 49,
+      quizId: 2,
+      text: "In the real estate example, what could be chosen as input A for pricing houses?",
+      options: [
+        "Only the price of the house",
+        "Only the size of the house",
+        "Both size and number of bedrooms",
+        "Only the number of bedrooms"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 50,
+      quizId: 2,
+      text: "Who decides what is input A and what is output B in a data set?",
+      options: [
+        "The AI algorithm",
+        "The data scientist",
+        "You, based on your business use case",
+        "The software vendor"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 51,
+      quizId: 2,
+      text: "What is an example of unstructured data?",
+      options: [
+        "House prices in a table",
+        "Machine temperature readings",
+        "Images",
+        "Customer IDs"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 52,
+      quizId: 2,
+      text: "What is an example of structured data?",
+      options: [
+        "Audio files",
+        "Video recordings",
+        "Text documents",
+        "Data in a spreadsheet format"
+      ],
+      correctAnswer: 3,
+      points: 1
+    },
+    {
+      id: 53,
+      quizId: 2,
+      text: "Which of the following is a way to acquire data mentioned?",
+      options: [
+        "Manual labeling",
+        "Creating synthetic data",
+        "Crowdsourcing",
+        "Blockchain verification"
+      ],
+      correctAnswer: 0,
+      points: 1
+    },
+    {
+      id: 54,
+      quizId: 2,
+      text: "What type of data was used in the example of detecting cats in pictures?",
+      options: [
+        "Structured data",
+        "Unstructured data",
+        "Semi-structured data",
+        "Meta data"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 55,
+      quizId: 2,
+      text: "In the context of a machine failure prediction system, what could be chosen as output B?",
+      options: [
+        "Machine ID",
+        "Temperature",
+        "Pressure",
+        "Whether the machine failed or not"
+      ],
+      correctAnswer: 3,
+      points: 1
+    },
+    {
+      id: 56,
+      quizId: 2,
+      text: "What phrase is mentioned to describe the problem of using bad quality data?",
+      options: [
+        "Data in, insights out",
+        "Garbage in, garbage out",
+        "More data, more problems",
+        "Bad data, bad model"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 57,
+      quizId: 2,
+      text: "What is one example of a data problem mentioned?",
+      options: [
+        "Too much data",
+        "Encrypted data",
+        "Missing values",
+        "Outdated algorithms"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    // Intermediate Questions (11-17)
+    {
+      id: 58,
+      quizId: 2,
+      text: "Why is it advised against waiting years to build up an IT team before starting AI projects?",
+      options: [
+        "AI technology will be obsolete by then",
+        "Competitors will gain an advantage",
+        "AI teams can provide valuable feedback to guide IT infrastructure development",
+        "It's more cost-effective to develop both simultaneously"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 59,
+      quizId: 2,
+      text: "How can observing user behaviors generate a data set?",
+      options: [
+        "By directly asking users for information",
+        "By recording actions like purchases at different price points",
+        "By analyzing social media profiles",
+        "By requiring users to complete surveys"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 60,
+      quizId: 2,
+      text: "What is the relationship between generative AI and unstructured data?",
+      options: [
+        "Generative AI cannot work with unstructured data",
+        "Generative AI is primarily used to generate unstructured data",
+        "Generative AI converts unstructured data to structured data",
+        "Generative AI works equally well with both types"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 61,
+      quizId: 2,
+      text: "What is a problematic assumption some CEOs make about data?",
+      options: [
+        "That data collection is unnecessary",
+        "That only small amounts of data are needed",
+        "That having large amounts of data automatically makes it valuable",
+        "That all data should be structured"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 62,
+      quizId: 2,
+      text: "What differentiates supervised learning from generative AI in terms of data types?",
+      options: [
+        "Supervised learning works only with structured data",
+        "Generative AI works only with unstructured data",
+        "Supervised learning works well with both structured and unstructured data",
+        "Generative AI requires more data than supervised learning"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 63,
+      quizId: 2,
+      text: "How might an AI team's feedback improve data collection for preventative maintenance?",
+      options: [
+        "By suggesting to collect data more frequently",
+        "By recommending different machines to monitor",
+        "By eliminating the need for data collection entirely",
+        "By outsourcing data collection to specialists"
+      ],
+      correctAnswer: 0,
+      points: 2
+    },
+    {
+      id: 64,
+      quizId: 2,
+      text: "What is the significance of the 'infamous Google cat' mentioned?",
+      options: [
+        "It was the first AI system to classify images",
+        "It demonstrated that AI could detect cats from watching YouTube videos",
+        "It proved that manual labeling is unnecessary",
+        "It showed that cats are better than dogs for AI training"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    // Advanced Questions (18-20)
+    {
+      id: 65,
+      quizId: 2,
+      text: "What can be inferred about the relationship between IT infrastructure and AI implementation?",
+      options: [
+        "They should be developed independently",
+        "IT infrastructure must be fully developed before AI implementation",
+        "They should develop iteratively with feedback between teams",
+        "AI implementation should precede IT infrastructure development"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 66,
+      quizId: 2,
+      text: "What strategic error was observed in a company that acquired other companies for their data?",
+      options: [
+        "They paid too much for the acquisitions",
+        "They acquired companies with incompatible data formats",
+        "They assumed the data would automatically create value without involving AI teams",
+        "They focused too much on unstructured data"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 67,
+      quizId: 2,
+      text: "Based on the discussion of data problems, what approach to data collection and preparation would be most effective?",
+      options: [
+        "Collect as much data as possible before involving AI teams",
+        "Focus exclusively on clean, structured data",
+        "Involve AI teams early to guide data collection and cleaning strategies",
+        "Prioritize volume of data over quality of data"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    // Bonus Questions
+    {
+      id: 68,
+      quizId: 2,
+      text: "What might be the underlying business reason for caution against overinvesting in IT infrastructure without AI team input?",
+      options: [
+        "Risk of technological obsolescence",
+        "Risk of capital misallocation on infrastructure that doesn't support the most valuable AI use cases",
+        "Risk of creating organizational silos between IT and AI teams",
+        "Risk of overemphasizing data collection at the expense of model development"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 69,
+      quizId: 2,
+      text: "What can be inferred about the relationship between business strategy and data science implementation?",
+      options: [
+        "Data science should dictate business strategy",
+        "Business strategy and data science objectives should be aligned with iterative feedback",
+        "Business strategy should be developed independently of data considerations",
+        "Data science is primarily useful for optimization rather than strategic decisions"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 70,
+      quizId: 2,
+      text: "Based on the distinction between structured and unstructured data and their relationship to different AI approaches, what might be a strategic consideration for a company with both types of data?",
+      options: [
+        "Always prioritize structured data as it's easier to work with",
+        "Develop separate AI systems for each data type without integration",
+        "Consider how different AI approaches might be combined for comprehensive insights",
+        "Convert all unstructured data to structured data before analysis"
+      ],
+      correctAnswer: 2,
+      points: 3
+    }
+  ],
+  '1-3': [
+    // Basic Questions (1-10)
+    {
+      id: 25,
+      quizId: 3,
+      text: "What is the most commonly used definition of machine learning?",
+      options: [
+        "The process of programming computers to follow specific rules",
+        "The field of study that gives computers the ability to learn without being explicitly programmed",
+        "The science of extracting knowledge and insights from data",
+        "The design of neural networks to mimic human cognition"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 26,
+      quizId: 3,
+      text: "What is typically the output of a data science project?",
+      options: [
+        "A running piece of software",
+        "A neural network model",
+        "A slide deck or presentation with insights for decision-making",
+        "A mobile application"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 27,
+      quizId: 3,
+      text: "Who was Arthur Samuel?",
+      options: [
+        "The creator of the term 'data science'",
+        "A pioneer of machine learning who built a checkers-playing program",
+        "The inventor of neural networks",
+        "The founder of deep learning"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 28,
+      quizId: 3,
+      text: "What do the terms 'neural network' and 'deep learning' refer to today?",
+      options: [
+        "Different technologies with different applications",
+        "Essentially the same thing, used interchangeably",
+        "Competing approaches to AI",
+        "Different programming paradigms"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 29,
+      quizId: 3,
+      text: "In the housing price example, what would be considered the input A?",
+      options: [
+        "Only the size of the house",
+        "Only the number of bedrooms",
+        "The price of the house",
+        "Size, number of bedrooms, number of bathrooms, and renovation status"
+      ],
+      correctAnswer: 3,
+      points: 1
+    },
+    {
+      id: 30,
+      quizId: 3,
+      text: "What would be considered the output B in the housing price example?",
+      options: [
+        "The size of the house",
+        "The number of bedrooms",
+        "The price of the house",
+        "Whether the house is newly renovated"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 31,
+      quizId: 3,
+      text: "Which of these is a key characteristic of a machine learning system?",
+      options: [
+        "It requires human oversight for every decision",
+        "It's a piece of software that can run automatically at any time",
+        "It only works with structured data",
+        "It only provides insights, not predictions"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 32,
+      quizId: 3,
+      text: "What is an artificial neural network primarily described as?",
+      options: [
+        "A recreation of the human brain",
+        "A big mathematical equation for computing output from input",
+        "A database of information",
+        "A collection of if-then rules"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 33,
+      quizId: 3,
+      text: "What is the relationship between artificial neural networks and the biological brain?",
+      options: [
+        "They work in exactly the same way",
+        "Neural networks were originally inspired by the brain, but work almost completely differently",
+        "Neural networks are digital recreations of brain circuits",
+        "They process the same types of information"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 34,
+      quizId: 3,
+      text: "In the online advertising example, what would be considered a machine learning application?",
+      options: [
+        "Analyzing which industries are buying the most ads",
+        "A system that predicts which ads a user is most likely to click on",
+        "A presentation showing advertising trends",
+        "Recommending more salespeople for certain industries"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    // Intermediate Questions (11-17)
+    {
+      id: 35,
+      quizId: 3,
+      text: "What distinguishes the outputs of machine learning projects from data science projects?",
+      options: [
+        "Machine learning produces insights; data science produces software",
+        "Machine learning produces software that runs automatically; data science produces insights for decision-making",
+        "Machine learning is always more accurate than data science",
+        "Data science is always used for business decisions; machine learning never is"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 36,
+      quizId: 3,
+      text: "According to the diagram presented, what is the relationship between AI and machine learning?",
+      options: [
+        "They are completely separate fields",
+        "They are the same thing with different names",
+        "Machine learning is a subset of AI",
+        "AI is a subset of machine learning"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 37,
+      quizId: 3,
+      text: "Which statement best captures the relationship between deep learning and machine learning?",
+      options: [
+        "Deep learning is the only form of machine learning that's valuable",
+        "Deep learning and machine learning are completely separate fields",
+        "Deep learning is considered the most important part of machine learning today",
+        "Machine learning is a small subset of deep learning techniques"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 38,
+      quizId: 3,
+      text: "In the context of the housing price example, which of the following would be a data science insight rather than a machine learning output?",
+      options: [
+        "The predicted price of a specific house",
+        "The discovery that three-bedroom houses cost more than two-bedroom houses of similar size",
+        "A web application that predicts house prices",
+        "An algorithm that classifies houses by type"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 39,
+      quizId: 3,
+      text: "How is the relationship between data science and AI described in the conceptual diagram?",
+      options: [
+        "Data science is clearly a subset of AI",
+        "AI is clearly a subset of data science",
+        "There is inconsistency in how the terminology is used in the industry",
+        "They are completely separate fields with no overlap"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 40,
+      quizId: 3,
+      text: "What would be an example of AI that is not machine learning, based on the concepts discussed?",
+      options: [
+        "Neural networks",
+        "Deep learning",
+        "Knowledge graphs (mentioned as one of the other AI tools)",
+        "A supervised learning system"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 41,
+      quizId: 3,
+      text: "In the context of online advertising, which represents the contrast between machine learning and data science?",
+      options: [
+        "Machine learning provides real-time ad recommendations; data science might reveal trends about which industries to target",
+        "Machine learning is only used for text ads; data science is used for image ads",
+        "Machine learning requires more data than data science",
+        "Data science is more profitable than machine learning"
+      ],
+      correctAnswer: 0,
+      points: 2
+    },
+    // Advanced Questions (18-20)
+    {
+      id: 42,
+      quizId: 3,
+      text: "What would be the key difference in how a company might implement the results of a machine learning project versus a data science project?",
+      options: [
+        "Machine learning results would be deployed as automated software systems; data science results would inform strategic human decisions",
+        "Machine learning would only be used by technical teams; data science would only be used by business teams",
+        "Machine learning projects would focus on customer-facing applications; data science would focus only on internal processes",
+        "Machine learning would require more investment; data science would provide faster returns"
+      ],
+      correctAnswer: 0,
+      points: 3
+    },
+    {
+      id: 43,
+      quizId: 3,
+      text: "What can be inferred about the skill sets typically needed in machine learning versus data science teams?",
+      options: [
+        "They require completely different skills with no overlap",
+        "Machine learning requires programming skills and algorithm understanding; data science likely requires more business analysis and communication skills",
+        "Data science requires technical skills; machine learning requires only business knowledge",
+        "Both require identical skill sets that can be used interchangeably"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 44,
+      quizId: 3,
+      text: "Based on the hierarchical diagram presented, how might an organization structure its AI initiatives for maximum effectiveness?",
+      options: [
+        "Keep data science and machine learning teams completely separate",
+        "Only invest in deep learning and ignore other approaches",
+        "Recognize the overlapping nature of these fields and create cross-functional teams",
+        "Outsource all AI work since the terminology is inconsistent"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    // Bonus Questions
+    {
+      id: 45,
+      quizId: 3,
+      text: "Given the historical context provided about neural networks being rebranded as deep learning, what might this suggest about the evolution of AI terminology?",
+      options: [
+        "Technical accuracy is the primary driver of terminology changes",
+        "Marketing and perception can significantly influence the adoption and funding of technical approaches",
+        "Newer terms always represent completely new technologies",
+        "Academic terms always prevail over industry terms in the long run"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 46,
+      quizId: 3,
+      text: "Based on the careful distinction between artificial neural networks and biological brains, what philosophical implication might be drawn about current AI approaches?",
+      options: [
+        "Current AI systems are approaching human-like intelligence",
+        "Neural networks are becoming more biologically accurate over time",
+        "Successful AI doesn't necessarily need to replicate human cognition methods",
+        "AI research should focus more on accurately modeling the human brain"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 47,
+      quizId: 3,
+      text: "Considering the overall structure of AI as presented, how might the relationship between these various fields evolve as AI technology advances in the next decade?",
+      options: [
+        "All approaches will likely merge into a single unified field",
+        "The distinctions will become more rigid and clearly defined",
+        "New approaches might emerge that don't fit neatly into the current categorizations",
+        "Deep learning will completely replace all other approaches"
+      ],
+      correctAnswer: 2,
+      points: 3
+    }
+  ],
+  '1-4': [
+    // Basic Questions (1-10)
+    {
+      id: 71,
+      quizId: 4,
+      text: "According to Andrew Ng, simply using a few neural networks or deep learning algorithms makes a company:",
+      options: [
+        "An AI company",
+        "An AI-first company",
+        "Neither an AI company nor an AI-first company",
+        "A tech company"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 72,
+      quizId: 4,
+      text: "What analogy does Andrew Ng use to explain the difference between using AI and being an AI company?",
+      options: [
+        "Operating systems vs software companies",
+        "Shopping malls with websites vs internet companies",
+        "Traditional manufacturing vs automation",
+        "Small businesses vs corporations"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 73,
+      quizId: 4,
+      text: "What is the first step in the five-step AI transformation playbook?",
+      options: [
+        "Building an in-house AI team",
+        "Developing an AI strategy",
+        "Executing pilot projects to gain momentum",
+        "Providing broad AI training"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 74,
+      quizId: 4,
+      text: "What role did Andrew Ng have that helped make companies great at AI?",
+      options: [
+        "He led the Google Brain team and Baidu's AI group",
+        "He was CEO of Google and Baidu",
+        "He consulted for Microsoft and Facebook",
+        "He was a board member at Apple and Amazon"
+      ],
+      correctAnswer: 0,
+      points: 1
+    },
+    {
+      id: 75,
+      quizId: 4,
+      text: "What does Andrew Ng say is important for decision-making in internet companies?",
+      options: [
+        "All decisions should be made by the CEO",
+        "Decisions should be pushed down to engineers and specialized roles",
+        "Decision-making should be centralized at the top",
+        "Decision-making should be outsourced"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 76,
+      quizId: 4,
+      text: "What is a Machine Learning Engineer commonly abbreviated as?",
+      options: [
+        "MLA",
+        "MLE",
+        "MLT",
+        "MLO"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 77,
+      quizId: 4,
+      text: "What is one thing AI companies are very good at according to Andrew Ng?",
+      options: [
+        "Marketing",
+        "Strategic data acquisition",
+        "Avoiding automation",
+        "Maintaining multiple separate databases"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 78,
+      quizId: 4,
+      text: "According to Andrew Ng, how many steps are in the AI transformation playbook?",
+      options: [
+        "Three",
+        "Four",
+        "Five",
+        "Six"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 79,
+      quizId: 4,
+      text: "What is the second step in the AI transformation playbook?",
+      options: [
+        "Executing pilot projects",
+        "Building an in-house AI team and providing broad AI training",
+        "Developing an AI strategy",
+        "Aligning communications"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 80,
+      quizId: 4,
+      text: "What does Andrew Ng say about the process of becoming good at AI?",
+      options: [
+        "It's a mysterious, magical process",
+        "It's only possible for tech companies",
+        "It's not a mysterious, magical process but a systematic one",
+        "It requires complete reorganization of the company"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    // Intermediate Questions (11-17)
+    {
+      id: 81,
+      quizId: 4,
+      text: "Why do AI companies tend to have unified data warehouses?",
+      options: [
+        "To comply with regulations",
+        "To save money on storage",
+        "To enable engineers to connect dots and spot patterns across datasets",
+        "To centralize control under one executive"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 82,
+      quizId: 4,
+      text: "What concern does Andrew Ng mention about unified data warehouses?",
+      options: [
+        "Cost",
+        "Privacy guarantees and data regulations like GDPR",
+        "Technical complexity",
+        "Employee resistance"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 83,
+      quizId: 4,
+      text: "Why might AI companies launch products that do not monetize?",
+      options: [
+        "To outcompete other businesses",
+        "To test new technologies",
+        "To acquire data that can be monetized elsewhere",
+        "To satisfy investor demands"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 84,
+      quizId: 4,
+      text: "How does Andrew Ng describe the AI capabilities of major tech companies like Google, Baidu, Facebook, and Microsoft 10 years ago?",
+      options: [
+        "They were already great AI companies",
+        "They were not great AI companies the way they are today",
+        "They were focused on different technologies entirely",
+        "They had more advanced AI than they do now"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 85,
+      quizId: 4,
+      text: "What does Andrew Ng suggest about AI training in organizations?",
+      options: [
+        "It should be limited to the engineering team",
+        "It should be broad, including managers, division leaders, and executives",
+        "It should be conducted only after developing an AI strategy",
+        "It should be outsourced to specialized training firms"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 86,
+      quizId: 4,
+      text: "What is the relationship between executing pilot projects and developing an AI strategy according to the playbook?",
+      options: [
+        "They should happen simultaneously",
+        "Pilot projects should follow strategy development",
+        "Strategy development typically follows after gaining experience with pilot projects",
+        "They are independent steps with no particular order"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 87,
+      quizId: 4,
+      text: "How does Andrew Ng compare the potential value creation of AI inside versus outside the software industry?",
+      options: [
+        "AI will only create value in the software industry",
+        "AI will create tremendous value in the software industry and outside of it",
+        "AI will create more value outside the software industry than within it",
+        "AI will create value equally in all industries"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    // Advanced Questions (18-20)
+    {
+      id: 88,
+      quizId: 4,
+      text: "Based on Andrew Ng's comparison between internet companies and AI companies, what fundamental shift in organizational structure appears common to both transformations?",
+      options: [
+        "The need for more centralized decision-making",
+        "Distributing expertise and decision-making authority more widely",
+        "Reducing the size of the workforce",
+        "Focusing exclusively on technology over business strategies"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 89,
+      quizId: 4,
+      text: "What underlying principle connects the examples Andrew Ng gives of what makes a great AI company?",
+      options: [
+        "Maximizing short-term profits",
+        "Doing the things that AI allows you to do really well",
+        "Following industry best practices",
+        "Competing directly with established tech giants"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 90,
+      quizId: 4,
+      text: "Based on the discussion, what could be inferred about the relationship between organizational structure and successful AI implementation?",
+      options: [
+        "Traditional hierarchical structures are optimal for AI implementation",
+        "Successful AI implementation likely requires new organizational roles and structures",
+        "Organizational structure is irrelevant to AI success",
+        "AI implementation should be kept separate from the main business organization"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    // Bonus Questions
+    {
+      id: 91,
+      quizId: 4,
+      text: "Considering Andrew Ng's comments about strategic data acquisition, what ethical and strategic tension might AI-aspiring companies need to navigate?",
+      options: [
+        "The trade-off between immediate monetization and long-term data strategy",
+        "The conflict between data acquisition goals and user privacy expectations",
+        "Both A and B",
+        "Neither A nor B"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 92,
+      quizId: 4,
+      text: "Based on the discussion of the AI transformation playbook, what implicit assumption might underlie the recommended sequence of steps?",
+      options: [
+        "That AI implementation is primarily a technical challenge",
+        "That cultural and organizational changes must precede technical implementation",
+        "That understanding through experience must precede strategic direction",
+        "That external communications are more important than internal ones"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 93,
+      quizId: 4,
+      text: "Given Andrew Ng's background and his comparison between internet transformation and AI transformation, what historical pattern might we infer about technological revolutions in business?",
+      options: [
+        "Each technological revolution requires completely new business principles",
+        "Technological revolutions succeed when they enhance existing business models",
+        "Each major technological shift follows a similar pattern of organizational transformation",
+        "Technology adoption is primarily driven by competitive pressure rather than internal transformation"
+      ],
+      correctAnswer: 2,
+      points: 3
+    }
+  ],
+  '1-5': [
+    // Basic Questions (1-10)
+    {
+      id: 94,
+      quizId: 5,
+      text: "What is technical diligence on an AI project meant to determine?",
+      options: [
+        "The cost of implementation",
+        "The timeline for development",
+        "The feasibility of the project",
+        "The return on investment"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 95,
+      quizId: 5,
+      text: "According to Andrew Ng, what type of results do media and academic literature tend to report about AI?",
+      options: [
+        "Only positive results or success stories",
+        "Balanced coverage of successes and failures",
+        "Primarily negative results",
+        "Only theoretical possibilities"
+      ],
+      correctAnswer: 0,
+      points: 1
+    },
+    {
+      id: 96,
+      quizId: 5,
+      text: "What rule of thumb does Andrew Ng suggest for determining if supervised learning might be able to automate a task?",
+      options: [
+        "If it can be done with mathematical formulas",
+        "If a human can do it with a second of thought",
+        "If it requires visual recognition",
+        "If it involves pattern recognition"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 97,
+      quizId: 5,
+      text: "What example is given of something that AI today cannot do well?",
+      options: [
+        "Spam filtering",
+        "Speech recognition",
+        "Accurately predicting stock prices based only on historical prices",
+        "Visual inspection of manufacturing defects"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 98,
+      quizId: 5,
+      text: "Why is predicting future stock prices particularly challenging for AI?",
+      options: [
+        "There isn't enough historical data available",
+        "The computational requirements are too high",
+        "Past stock prices are not very predictive of future prices",
+        "The algorithms are not sophisticated enough"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 99,
+      quizId: 5,
+      text: "What does Andrew Ng mean by a 'simple concept' in machine learning terms?",
+      options: [
+        "A concept that can be explained in one sentence",
+        "A concept that takes a human only a second or a very small number of seconds to process",
+        "A concept that requires minimal computing power",
+        "A concept that can be programmed using simple code"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 100,
+      quizId: 5,
+      text: "What type of data is needed to build a machine learning system to detect scratches on phones?",
+      options: [
+        "Only images of phones",
+        "Only labels indicating scratched or not scratched",
+        "Both images of phones and labels identifying them as scratched or not",
+        "Technical specifications of phone materials"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 101,
+      quizId: 5,
+      text: "According to Andrew Ng, what is AI transforming?",
+      options: [
+        "Only the technology sector",
+        "Only large corporations",
+        "Every industry",
+        "Only consumer products"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 102,
+      quizId: 5,
+      text: "What is one factor that makes a machine learning problem more likely to be feasible?",
+      options: [
+        "Having lots of data available",
+        "Having a large development team",
+        "Having significant financial resources",
+        "Having advanced computing hardware"
+      ],
+      correctAnswer: 0,
+      points: 1
+    },
+    {
+      id: 103,
+      quizId: 5,
+      text: "What does Andrew Ng compare AI to?",
+      options: [
+        "The internet",
+        "Electricity",
+        "Steam power",
+        "Nuclear energy"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    // Intermediate Questions (11-17)
+    {
+      id: 104,
+      quizId: 5,
+      text: "Why might CEOs sometimes have unrealistic expectations about AI capabilities?",
+      options: [
+        "They read too many science fiction novels",
+        "They are influenced by media reports of only positive results",
+        "They lack technical backgrounds",
+        "They are pressured by competitors"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 105,
+      quizId: 5,
+      text: "What is the relationship between the complexity of a concept and the feasibility of automating it with machine learning?",
+      options: [
+        "Complex concepts are more feasible to automate because they provide more data",
+        "There is no relationship between complexity and feasibility",
+        "Simpler concepts are more likely to be feasible to automate",
+        "Complexity only matters for certain types of machine learning models"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 106,
+      quizId: 5,
+      text: "In the context of predicting stock prices, what alternative approach might have some predictive power?",
+      options: [
+        "Using only longer historical time periods",
+        "Using more complex algorithms",
+        "Using additional inputs like web traffic or foot traffic data",
+        "Using faster computers for real-time analysis"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 107,
+      quizId: 5,
+      text: "What are the two main factors mentioned that make a machine learning problem more likely to be feasible?",
+      options: [
+        "Simple concept and lots of computing power",
+        "Simple concept and lots of data available",
+        "Complex concept and specialized algorithms",
+        "Lots of data and powerful hardware"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 108,
+      quizId: 5,
+      text: "Why does identifying the position of other cars seem like a feasible task for machine learning?",
+      options: [
+        "Because it requires little data",
+        "Because it's a computationally simple task",
+        "Because humans can do it with less than a second of thought",
+        "Because it's already been done before"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 109,
+      quizId: 5,
+      text: "What does Andrew Ng suggest engineers should do before committing to an AI project?",
+      options: [
+        "Secure sufficient funding",
+        "Perform technical diligence to assess feasibility",
+        "Start with a pilot implementation",
+        "Hire specialized talent"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 110,
+      quizId: 5,
+      text: "What misconception about AI capabilities does Andrew Ng highlight?",
+      options: [
+        "That AI is too limited to be useful",
+        "That AI can only work with digital data",
+        "That AI can do everything",
+        "That AI is only useful for large companies"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    // Advanced Questions (18-20)
+    {
+      id: 111,
+      quizId: 5,
+      text: "Based on the discussion of stock price prediction, what principle can be inferred about the relationship between input data and output predictions in machine learning?",
+      options: [
+        "More historical data always leads to better predictions",
+        "The input data must have a meaningful causal relationship with the output to be predicted",
+        "Complex outputs require complex inputs",
+        "Time-series data is always difficult to predict"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 112,
+      quizId: 5,
+      text: "What inference can be made about the role of human judgment in selecting AI projects?",
+      options: [
+        "Human judgment will soon be replaced by AI decision-making",
+        "Human judgment is essential for filtering feasible from infeasible AI projects",
+        "Human judgment is only needed for technical implementation details",
+        "Human judgment is less reliable than algorithmic project selection"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 113,
+      quizId: 5,
+      text: "What strategic implication can be drawn from the distinction between what AI can and cannot do?",
+      options: [
+        "Companies should wait until AI can do everything before investing",
+        "Companies should focus only on what competitors are doing with AI",
+        "Companies should be selective and target AI projects where feasibility is higher",
+        "Companies should prioritize complex AI problems for greater competitive advantage"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    // Bonus Questions
+    {
+      id: 114,
+      quizId: 5,
+      text: "Based on the described limitations of AI in predicting stock prices, what broader limitation might this suggest about AI's capabilities with complex systems?",
+      options: [
+        "AI cannot work with financial data at all",
+        "AI struggles with systems where past behavior may not predict future behavior due to numerous complex, changing variables",
+        "AI is limited by processing power when handling financial calculations",
+        "AI will eventually overcome these limitations with more data"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 115,
+      quizId: 5,
+      text: "What philosophical question does the 'one second of thought' rule of thumb raise about the nature of human versus machine intelligence?",
+      options: [
+        "Whether machines will ever think like humans",
+        "Whether tasks that require instantaneous human intuition represent a fundamentally different type of cognition than tasks requiring longer deliberation",
+        "Whether machines process information faster than humans",
+        "Whether human cognition is essentially computational"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 116,
+      quizId: 5,
+      text: "Considering Andrew Ng's advice on project selection, what might be an optimal approach for a company just beginning to implement AI?",
+      options: [
+        "Focus on cutting-edge research problems to gain competitive advantage",
+        "Start with well-defined, high-value problems where the concept is simple and data is abundant",
+        "Wait for AI technology to mature further before implementing",
+        "Implement AI across all business processes simultaneously"
+      ],
+      correctAnswer: 1,
+      points: 3
     }
   ]
 };
@@ -340,26 +1547,80 @@ const mockQuestions: Record<string, QuestionType[]> = {
 const Quiz = () => {
   const { sectionId } = useParams();
   const navigate = useNavigate();
-  const { answers, setAnswer, setScore, completeQuiz } = useQuizStore();
+  const { answers, setAnswer, setScore, completeQuiz, resetQuiz } = useQuizStore();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [maxPossibleScore, setMaxPossibleScore] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saveSuccess, setSaveSuccess] = useState(false);
 
   const questions = useMemo(() => mockQuestions[sectionId || ''] || [], [sectionId]);
   const totalQuestions = questions.length;
   const answeredQuestions = Object.keys(answers).length;
+  const chapter = Number(sectionId?.split('-')[0]);
+  const userId = 1; // TODO: Replace with actual user ID from auth system
 
   useEffect(() => {
     if (!questions.length) {
       navigate('/');
+      return;
     }
-  }, [questions, navigate]);
+
+    const loadProgress = async () => {
+      try {
+        const progress = await progressService.getProgress(userId, chapter);
+        // Restore answers
+        Object.entries(progress.answers).forEach(([questionId, answerIndex]) => {
+          setAnswer(Number(questionId), answerIndex);
+        });
+        // Restore score if completed
+        if (progress.completed) {
+          setFinalScore(progress.score);
+          setMaxPossibleScore(100); // Assuming score is stored as percentage
+          setIsSubmitted(true);
+        }
+      } catch (err: any) {
+        // If no progress found, that's okay - start fresh
+        if (err.response?.status !== 404) {
+          setError('Failed to load progress');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProgress();
+  }, [questions, navigate, chapter, userId, setAnswer]);
+
+  // Auto-save progress when answers change
+  useEffect(() => {
+    const saveProgress = async () => {
+      if (loading || !answeredQuestions) return;
+      
+      try {
+        await progressService.saveProgress(
+          userId,
+          chapter,
+          answers,
+          (finalScore / maxPossibleScore) * 100,
+          isSubmitted
+        );
+        setSaveSuccess(true);
+      } catch (err) {
+        setError('Failed to save progress');
+      }
+    };
+
+    const debounceTimer = setTimeout(saveProgress, 1000);
+    return () => clearTimeout(debounceTimer);
+  }, [answers, loading, answeredQuestions, finalScore, maxPossibleScore, isSubmitted, chapter, userId]);
 
   const handleAnswer = (questionId: number, answerIndex: number) => {
     setAnswer(questionId, answerIndex);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Calculate score
     let score = 0;
     let maxScore = 0;
@@ -371,16 +1632,31 @@ const Quiz = () => {
     });
 
     // Save score and complete quiz
-    setScore(Number(sectionId?.split('-')[0]), (score / maxScore) * 100);
+    const percentageScore = (score / maxScore) * 100;
+    setScore(chapter, percentageScore);
     completeQuiz();
     
     // Show score and mark as submitted
     setFinalScore(score);
     setMaxPossibleScore(maxScore);
     setIsSubmitted(true);
+
+    // Save final progress
+    try {
+      await progressService.saveProgress(
+        userId,
+        chapter,
+        answers,
+        percentageScore,
+        true
+      );
+      setSaveSuccess(true);
+    } catch (err) {
+      setError('Failed to save final progress');
+    }
   };
 
-  if (!questions.length) {
+  if (!questions.length || loading) {
     return null;
   }
 
@@ -393,6 +1669,7 @@ const Quiz = () => {
           {sectionId?.split('-')[1] === '1' ? 'Machine Learning' :
            sectionId?.split('-')[1] === '2' ? 'What is data?' :
            sectionId?.split('-')[1] === '3' ? 'The terminology of AI' :
+           sectionId?.split('-')[1] === '4' ? 'What Machine Learning Can and Cannot Do' :
            'Section Quiz'}
         </Typography>
 
@@ -444,6 +1721,26 @@ const Quiz = () => {
           </Button>
         </Box>
       </Box>
+
+      <Snackbar
+        open={!!error}
+        autoHideDuration={6000}
+        onClose={() => setError(null)}
+      >
+        <Alert severity="error" onClose={() => setError(null)}>
+          {error}
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={saveSuccess}
+        autoHideDuration={3000}
+        onClose={() => setSaveSuccess(false)}
+      >
+        <Alert severity="success" onClose={() => setSaveSuccess(false)}>
+          Progress saved
+        </Alert>
+      </Snackbar>
     </Container>
   );
 };
