@@ -1541,6 +1541,908 @@ const mockQuestions: Record<string, QuestionType[]> = {
       correctAnswer: 1,
       points: 3
     }
+  ],
+  '1-6': [
+    // Basic Questions (1-10)
+    {
+      id: 120,
+      quizId: 6,
+      text: "What does the speaker say is one of the challenges of becoming good at recognizing what AI can and cannot do?",
+      options: [
+        "It requires advanced programming skills",
+        "It requires seeing concrete examples of AI successes and failures",
+        "It requires a PhD in computer science",
+        "It requires working at a tech company"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 121,
+      quizId: 6,
+      text: "In the self-driving car example, what can AI do pretty well?",
+      options: [
+        "Detect the intentions of pedestrians",
+        "Determine where other cars are positioned",
+        "Understand all human gestures",
+        "Predict traffic patterns"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 122,
+      quizId: 6,
+      text: "What is mentioned as an input that self-driving cars might use besides cameras?",
+      options: [
+        "GPS",
+        "Radar and lidar",
+        "Satellite imagery",
+        "Traffic data"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 123,
+      quizId: 6,
+      text: "According to the speaker, what medical diagnosis task can AI potentially perform?",
+      options: [
+        "Diagnosing pneumonia from X-ray images",
+        "Understanding medical textbooks",
+        "Diagnosing all diseases from a single image",
+        "Replacing doctors entirely"
+      ],
+      correctAnswer: 0,
+      points: 1
+    },
+    {
+      id: 124,
+      quizId: 6,
+      text: "When does machine learning tend to work well, according to the video?",
+      options: [
+        "When trying to learn complex concepts with little data",
+        "When trying to learn simple concepts with lots of data",
+        "When programming complex algorithms",
+        "When humans cannot solve the problem"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 125,
+      quizId: 6,
+      text: "What is one type of input data mentioned for self-driving cars?",
+      options: [
+        "Traffic signals",
+        "Pictures of what's in front of the car",
+        "Weather conditions",
+        "Road maps"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 126,
+      quizId: 6,
+      text: "What is described as difficult for current AI systems to interpret accurately?",
+      options: [
+        "Road signs",
+        "Other vehicles",
+        "Human gestures and intentions",
+        "Weather conditions"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 127,
+      quizId: 6,
+      text: "How much time would typically be needed to see three examples of AI projects if you work on one new project per year?",
+      options: [
+        "1 year",
+        "2 years",
+        "3 years",
+        "6 months"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 128,
+      quizId: 6,
+      text: "In the X-ray example, what is the output (B) the AI system is trying to determine?",
+      options: [
+        "The patient's age",
+        "Whether the patient has pneumonia",
+        "The quality of the X-ray",
+        "The best treatment option"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 129,
+      quizId: 6,
+      text: "What is one reason the speaker gives for why interpreting human gestures is difficult for AI?",
+      options: [
+        "People gesture too quickly",
+        "The number of ways people can gesture is very large",
+        "Cameras can't capture gestures clearly",
+        "AI doesn't have hands to understand gestures"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    // Intermediate Questions (11-17)
+    {
+      id: 130,
+      quizId: 6,
+      text: "Why does the speaker suggest that detecting human intentions from gestures is particularly challenging for self-driving cars?",
+      options: [
+        "The computational power required is too high",
+        "It's a safety-critical application requiring extreme accuracy",
+        "Humans don't gesture at self-driving cars",
+        "The cameras are not positioned correctly"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 131,
+      quizId: 6,
+      text: "What contrast does the speaker make between humans and AI regarding learning from medical textbooks?",
+      options: [
+        "Humans need more examples than AI",
+        "AI can learn faster but less accurately",
+        "Humans can learn from few examples and explanations, while AI struggles with this",
+        "AI and humans learn equally well from textbooks"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 132,
+      quizId: 6,
+      text: "What weakness of machine learning is described as 'underappreciated' in the video?",
+      options: [
+        "Its inability to work with very large datasets",
+        "Its poor performance when asked to work with new types of data different from its training data",
+        "Its high energy consumption",
+        "Its inability to explain its decisions"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 133,
+      quizId: 6,
+      text: "What example does the speaker use to demonstrate AI's weakness in generalizing to new data?",
+      options: [
+        "A language model failing to understand slang",
+        "A pneumonia detection system trained on high-quality X-rays failing on X-rays from a different hospital",
+        "A self-driving car failing in rainy conditions",
+        "A chess AI failing against unconventional strategies"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 134,
+      quizId: 6,
+      text: "What does the speaker suggest about the boundary between what AI can and cannot do?",
+      options: [
+        "It's completely clear and well-defined",
+        "It's fuzzy and determining feasibility often requires technical investigation",
+        "It's only understandable to AI experts",
+        "It's constantly shifting every few months"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 135,
+      quizId: 6,
+      text: "According to the video, why is it particularly difficult to collect enough data for an AI to interpret human gestures directed at cars?",
+      options: [
+        "People don't like being recorded",
+        "The diversity of gestures is too great to capture completely",
+        "Video quality is usually too poor",
+        "Legal restrictions on data collection"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 136,
+      quizId: 6,
+      text: "What does the speaker suggest about their own ability to determine AI project feasibility?",
+      options: [
+        "They can immediately determine if a project is feasible",
+        "They often need weeks of technical diligence to form strong convictions about feasibility",
+        "They rely entirely on others' opinions",
+        "They use a mathematical formula to calculate feasibility"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    // Advanced Questions (18-20)
+    {
+      id: 137,
+      quizId: 6,
+      text: "Based on the principles discussed in the video, why would neural networks be effective for complex patterns?",
+      options: [
+        "They use simple programming code",
+        "They require less data than other methods",
+        "Simple neurons stack to compute increasingly complex functions",
+        "They work without any human supervision"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 138,
+      quizId: 6,
+      text: "What would you need to do if you wanted to add 'seasonal trends' as a factor in the t-shirt demand prediction?",
+      options: [
+        "Completely redesign the neural network",
+        "Simply add it as an additional input to the existing network",
+        "Create a separate neural network just for seasonality",
+        "This wouldn't be possible with neural networks"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 139,
+      quizId: 6,
+      text: "If a neural network consistently overestimates demand, what might be happening?",
+      options: [
+        "The network is too small",
+        "It needs more training data or adjustment",
+        "Neural networks always overestimate by design",
+        "The input features are irrelevant"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 140,
+      quizId: 6,
+      text: "Why didn't the designer need to explicitly tell the neural network that 'affordability' was an important factor?",
+      options: [
+        "Affordability isn't actually important for sales",
+        "The neural network can discover these relationships on its own",
+        "Affordability was pre-programmed in all neural networks",
+        "They did explicitly define affordability"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 141,
+      quizId: 6,
+      text: "What advantages would a larger neural network with thousands of neurons have over the simple examples shown?",
+      options: [
+        "It would compute faster but less accurately",
+        "It could potentially model more complex, nuanced relationships",
+        "It would require less training data",
+        "It would be easier to interpret"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    // Bonus Questions (21-23)
+    {
+      id: 142,
+      quizId: 6,
+      text: "How might a neural network handle 'discontinuous' relationships, such as if t-shirts sold dramatically better at certain price points (like $19.99 vs $20.00)?",
+      options: [
+        "Neural networks cannot model discontinuous relationships",
+        "By using special 'discontinuity neurons'",
+        "With enough neurons and proper training, it could approximate these jumps",
+        "By converting all inputs to continuous variables"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 143,
+      quizId: 6,
+      text: "Based on the concepts explained, how might transfer learning work in the context of neural networks?",
+      options: [
+        "Creating entirely new neural networks for each similar problem",
+        "Using parts of trained neural networks as starting points for related problems",
+        "Transferring data between different databases",
+        "Moving neural networks between different computers"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 144,
+      quizId: 6,
+      text: "How would the concept of 'vanishing gradients' potentially affect a very deep neural network with many layers compared to the simple examples shown?",
+      options: [
+        "It would make training faster",
+        "It would have no effect on modern networks",
+        "It could make it difficult for early layers to learn properly",
+        "It would cause the network to use more memory"
+      ],
+      correctAnswer: 2,
+      points: 3
+    }
+  ],
+  '1-7': [
+    // Basic Questions (1-10)
+    {
+      id: 143,
+      quizId: 7,
+      text: "In AI, what two terms are used almost interchangeably?",
+      options: [
+        "Machine learning and AI",
+        "Deep learning and neural networks",
+        "Data mining and clustering",
+        "Supervised and unsupervised learning"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 144,
+      quizId: 7,
+      text: "What is the simplest form of a neural network shown in the example?",
+      options: [
+        "Multiple interconnected neurons",
+        "A single artificial neuron",
+        "A decision tree",
+        "A clustering algorithm"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 145,
+      quizId: 7,
+      text: "In the t-shirt example, what was the input to the simplest neural network?",
+      options: [
+        "Demand",
+        "Material quality",
+        "Price",
+        "Marketing budget"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 146,
+      quizId: 7,
+      text: "What was the output of the simplest neural network in the t-shirt example?",
+      options: [
+        "Price",
+        "Estimated demand",
+        "Shipping cost",
+        "Quality rating"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 147,
+      quizId: 7,
+      text: "What shape did the simplest neural network create when plotting price vs. demand?",
+      options: [
+        "A straight line",
+        "A curved line that flattens at zero",
+        "A bell curve",
+        "A zigzag pattern"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 148,
+      quizId: 7,
+      text: "What metaphor was used to describe how artificial neurons work together?",
+      options: [
+        "Building blocks",
+        "Puzzle pieces",
+        "Lego bricks",
+        "Chain links"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 149,
+      quizId: 7,
+      text: "How many inputs were used in the more complex t-shirt demand prediction model?",
+      options: [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 150,
+      quizId: 7,
+      text: "What was NOT one of the inputs in the more complex neural network example?",
+      options: [
+        "Price",
+        "Shipping cost",
+        "Customer age",
+        "Material"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 151,
+      quizId: 7,
+      text: "In the more complex neural network example, what were the blue neurons calculating?",
+      options: [
+        "Final demand predictions",
+        "Intermediate factors like affordability and awareness",
+        "Error rates",
+        "Learning rates"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 152,
+      quizId: 7,
+      text: "In a neural network, what does the output neuron do?",
+      options: [
+        "Processes raw input data",
+        "Combines intermediate calculations to produce the final output",
+        "Stores the training data",
+        "Controls the learning rate"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    // Intermediate Questions (11-15)
+    {
+      id: 153,
+      quizId: 7,
+      text: "What is one of the 'wonderful things' about neural networks according to the content?",
+      options: [
+        "They're easy to debug",
+        "They require minimal computational power",
+        "They figure out the middle connections by themselves",
+        "They never make prediction errors"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 154,
+      quizId: 7,
+      text: "How many artificial neurons were in the more complex t-shirt demand example?",
+      options: [
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 155,
+      quizId: 7,
+      text: "What is the relationship between perceived quality and price in the neural network example?",
+      options: [
+        "They are unrelated",
+        "Higher price can increase perceived quality",
+        "Price only affects affordability, not quality",
+        "Price decreases perceived quality"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 156,
+      quizId: 7,
+      text: "What does it mean to 'train' a neural network?",
+      options: [
+        "Manually setting all the weights",
+        "Feeding it data with inputs and expected outputs",
+        "Building the physical hardware",
+        "Writing the programming language"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 157,
+      quizId: 7,
+      text: "What factors did the 'perceived quality' neuron take as inputs?",
+      options: [
+        "Price, shipping cost, and material",
+        "Price, marketing, and material",
+        "Only material quality",
+        "Marketing and affordability"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    // Advanced Questions (16-20)
+    {
+      id: 158,
+      quizId: 7,
+      text: "Based on the explanation, why would neural networks be effective for complex patterns?",
+      options: [
+        "They use simple programming code",
+        "They require less data than other methods",
+        "Simple neurons stack to compute increasingly complex functions",
+        "They work without any human supervision"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 159,
+      quizId: 7,
+      text: "What would you need to do if you wanted to add 'seasonal trends' as a factor in the t-shirt demand prediction?",
+      options: [
+        "Completely redesign the neural network",
+        "Simply add it as an additional input to the existing network",
+        "Create a separate neural network just for seasonality",
+        "This wouldn't be possible with neural networks"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 160,
+      quizId: 7,
+      text: "If a neural network consistently overestimates demand, what might be happening?",
+      options: [
+        "The network is too small",
+        "It needs more training data or adjustment",
+        "Neural networks always overestimate by design",
+        "The input features are irrelevant"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 161,
+      quizId: 7,
+      text: "Why didn't the designer need to explicitly tell the neural network that 'affordability' was an important factor?",
+      options: [
+        "Affordability isn't actually important for sales",
+        "The neural network can discover these relationships on its own",
+        "Affordability was pre-programmed in all neural networks",
+        "They did explicitly define affordability"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 162,
+      quizId: 7,
+      text: "What advantages would a larger neural network with thousands of neurons have over the simple examples shown?",
+      options: [
+        "It would compute faster but less accurately",
+        "It could potentially model more complex, nuanced relationships",
+        "It would require less training data",
+        "It would be easier to interpret"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    // Bonus Questions (21-23)
+    {
+      id: 163,
+      quizId: 7,
+      text: "How might a neural network handle 'discontinuous' relationships, such as if t-shirts sold dramatically better at certain price points (like $19.99 vs $20.00)?",
+      options: [
+        "Neural networks cannot model discontinuous relationships",
+        "By using special 'discontinuity neurons'",
+        "With enough neurons and proper training, it could approximate these jumps",
+        "By converting all inputs to continuous variables"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 164,
+      quizId: 7,
+      text: "Based on the concepts explained, how might transfer learning work in the context of neural networks?",
+      options: [
+        "Creating entirely new neural networks for each similar problem",
+        "Using parts of trained neural networks as starting points for related problems",
+        "Transferring data between different databases",
+        "Moving neural networks between different computers"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 165,
+      quizId: 7,
+      text: "How would the concept of 'vanishing gradients' potentially affect a very deep neural network with many layers compared to the simple examples shown?",
+      options: [
+        "It would make training faster",
+        "It would have no effect on modern networks",
+        "It could make it difficult for early layers to learn properly",
+        "It would cause the network to use more memory"
+      ],
+      correctAnswer: 2,
+      points: 3
+    }
+  ],
+  '1-8': [
+    // Basic Questions (1-7)
+    {
+      id: 166,
+      quizId: 8,
+      text: "How does a computer see a picture compared to how humans see it?",
+      options: [
+        "Exactly the same way humans do",
+        "As a grid of pixel brightness values",
+        "As abstract concepts and ideas",
+        "Only in black and white"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 167,
+      quizId: 8,
+      text: "In a black and white or grayscale image, what does each pixel correspond to?",
+      options: [
+        "Three numbers for color intensity",
+        "A single number for brightness",
+        "The name of the object in that pixel",
+        "An edge detection value"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 168,
+      quizId: 8,
+      text: "How many numbers represent each pixel in a color image?",
+      options: [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 169,
+      quizId: 8,
+      text: "What do the three numbers in a color pixel represent?",
+      options: [
+        "Height, width, and depth",
+        "Hue, saturation, and brightness",
+        "Red, green, and blue brightness values",
+        "Horizontal, vertical, and diagonal coordinates"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    {
+      id: 170,
+      quizId: 8,
+      text: "What is the primary task of the neural network in face recognition?",
+      options: [
+        "To create new faces",
+        "To take pixel values as input and output a person's identity",
+        "To enhance photo quality",
+        "To compress image files"
+      ],
+      correctAnswer: 1,
+      points: 1
+    },
+    {
+      id: 171,
+      quizId: 8,
+      text: "For a 1000 × 1000 pixel color image, approximately how many input numbers would a neural network process?",
+      options: [
+        "1,000",
+        "10,000",
+        "1,000,000",
+        "3,000,000"
+      ],
+      correctAnswer: 3,
+      points: 1
+    },
+    {
+      id: 172,
+      quizId: 8,
+      text: "What is one advantage of neural networks mentioned in the text?",
+      options: [
+        "They require very little data",
+        "They are easy to program manually",
+        "You don't need to worry about what happens in the middle layers",
+        "They work only with numerical data"
+      ],
+      correctAnswer: 2,
+      points: 1
+    },
+    // Intermediate Questions (8-13)
+    {
+      id: 173,
+      quizId: 8,
+      text: "What do neurons in the earlier parts of a face recognition neural network typically learn to detect?",
+      options: [
+        "Complete faces",
+        "Identities of people",
+        "Edges in pictures",
+        "Clothing and accessories"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 174,
+      quizId: 8,
+      text: "After learning to detect edges, what do the neurons in the middle layers of the network learn to detect?",
+      options: [
+        "Pixel brightness only",
+        "Parts of objects like eyes and noses",
+        "The background of images",
+        "Image resolution"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 175,
+      quizId: 8,
+      text: "What do the later neurons (further to the right) in a face recognition neural network learn to detect?",
+      options: [
+        "Only edge features",
+        "Different shapes of faces",
+        "Only pixel colors",
+        "Image timestamps"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 176,
+      quizId: 8,
+      text: "How does a neural network figure out what each neuron in the middle should compute?",
+      options: [
+        "By following explicit programming instructions",
+        "Through the learning algorithm and lots of training data",
+        "By asking the user for guidance",
+        "By copying other neural networks"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    {
+      id: 177,
+      quizId: 8,
+      text: "If you increase the resolution of an image from 500×500 pixels to 1000×1000 pixels, how does this affect the number of input values to the neural network?",
+      options: [
+        "No change",
+        "Doubles the number of inputs",
+        "Quadruples the number of inputs",
+        "Increases by 50%"
+      ],
+      correctAnswer: 2,
+      points: 2
+    },
+    {
+      id: 178,
+      quizId: 8,
+      text: "What key components does a neural network need to learn face recognition?",
+      options: [
+        "Just images of faces",
+        "Images (input A) and correct identities (output B)",
+        "Only the identities of people",
+        "Predetermined facial features"
+      ],
+      correctAnswer: 1,
+      points: 2
+    },
+    // Advanced Questions (14-17)
+    {
+      id: 179,
+      quizId: 8,
+      text: "How does the neural network's approach to face recognition differ from traditional programming approaches?",
+      options: [
+        "Neural networks use fewer computational resources",
+        "Neural networks must be explicitly told what features to look for",
+        "Neural networks discover important features on their own",
+        "Neural networks only work with pre-processed images"
+      ],
+      correctAnswer: 2,
+      points: 3
+    },
+    {
+      id: 180,
+      quizId: 8,
+      text: "What is the progression of feature detection in a face recognition neural network?",
+      options: [
+        "Identities → Faces → Parts → Edges",
+        "Edges → Parts of objects → Shapes of faces → Identities",
+        "Colors → Textures → Shapes → Identities",
+        "Pixels → Identities (no intermediate steps)"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 181,
+      quizId: 8,
+      text: "Why doesn't the user need to specify what each neuron in the neural network should compute?",
+      options: [
+        "Because neural networks only have input and output neurons",
+        "Because the learning algorithm automatically determines this during training",
+        "Because all neurons compute the same function",
+        "Because only the first layer of neurons matters"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 182,
+      quizId: 8,
+      text: "How would a neural network process a 1000×1000 pixel image that has both color and depth information (RGBD)?",
+      options: [
+        "It would use 3 million inputs",
+        "It would use 4 million inputs",
+        "It would convert it to grayscale first",
+        "It cannot process depth information"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    // Bonus Questions (18-20)
+    {
+      id: 183,
+      quizId: 8,
+      text: "How might the computational requirements change if you wanted to recognize not just who is in an image but also their emotional state, age, and whether they're wearing glasses?",
+      options: [
+        "The input size would increase",
+        "The output layer would need more neurons for multiple classifications",
+        "The network would need fewer hidden layers",
+        "The computation would be simpler as these are related tasks"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 184,
+      quizId: 8,
+      text: "In a neural network for face recognition, if we consider computational efficiency, which of the following architectural modifications might be most effective and why?",
+      options: [
+        "Adding more layers to improve accuracy regardless of computational cost",
+        "Using convolutional layers that share weights to reduce parameters while maintaining spatial information",
+        "Randomly removing connections between neurons during each forward pass",
+        "Converting all images to grayscale to reduce input size"
+      ],
+      correctAnswer: 1,
+      points: 3
+    },
+    {
+      id: 185,
+      quizId: 8,
+      text: "How does the concept of hierarchical feature learning in neural networks for face recognition relate to how neuroscientists believe the human visual cortex processes images?",
+      options: [
+        "They are completely different processes with no similarities",
+        "Both systems process entire images holistically from the start",
+        "Both systems tend to recognize familiar people faster than strangers",
+        "Both systems process visual information in a hierarchical manner, starting with simple features and building to complex representations"
+      ],
+      correctAnswer: 3,
+      points: 3
+    }
   ]
 };
 
