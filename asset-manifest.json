@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/aiforeveryone/static/css/main.e6c13ad2.css",
+    "main.js": "/aiforeveryone/static/js/main.1df03287.js",
+    "static/js/453.509fbadb.chunk.js": "/aiforeveryone/static/js/453.509fbadb.chunk.js",
+    "index.html": "/aiforeveryone/index.html",
+    "main.e6c13ad2.css.map": "/aiforeveryone/static/css/main.e6c13ad2.css.map",
+    "main.1df03287.js.map": "/aiforeveryone/static/js/main.1df03287.js.map",
+    "453.509fbadb.chunk.js.map": "/aiforeveryone/static/js/453.509fbadb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1df03287.js"
+  ]
+}
