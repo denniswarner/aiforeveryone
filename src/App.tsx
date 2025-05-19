@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, CssBaseline, Container } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import Header from './components/Layout/Header';
